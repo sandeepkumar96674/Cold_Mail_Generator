@@ -8,6 +8,8 @@ from utils import clean_text
 
 def create_streamlit_app(llm, portfolio, clean_text):
     st.title("📧 Generate your Cold Mail in One Go.")
+    
+    # URL input and submit button
     url_input = st.text_input("Enter a URL:", value="https://jobs.nike.com/job/R-33460")
     submit_button = st.button("Submit")
 
@@ -24,6 +26,13 @@ def create_streamlit_app(llm, portfolio, clean_text):
                 st.code(email, language='markdown')
         except Exception as e:
             st.error(f"An Error Occurred: {e}")
+    
+    # Add "Connect with Sandeep" button with LinkedIn profile link
+    if st.button("Connect with Sandeep"):
+        st.markdown(
+            "[Click here to connect with me on LinkedIn](https://www.linkedin.com/in/the-sandeep-kumar)",
+            unsafe_allow_html=True
+        )
 
 
 if __name__ == "__main__":
@@ -31,4 +40,3 @@ if __name__ == "__main__":
     portfolio = Portfolio()
     st.set_page_config(layout="wide", page_title="Cold Email Generator", page_icon="📧")
     create_streamlit_app(chain, portfolio, clean_text)
-
