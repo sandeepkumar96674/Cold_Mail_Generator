@@ -5,7 +5,7 @@ import os
 
 
 class Portfolio:
-    def __init__(self, file_path="C:/Users/sande/College/Tasks/Cold_Email/app/my_portfolio.csv"):
+    def __init__(self, file_path="my_portfolio.csv"):
         self.file_path = file_path
         self.data = pd.read_csv(file_path)
         # Ensure vectorstore directory exists
